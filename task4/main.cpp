@@ -134,7 +134,7 @@ void collision_detection(
       unsigned int ic0 = pi.icircle;
       // ----------------------------------------------
       for (auto& c_stack : stack) {
-          if (is_collide(aCircle[ic0], aCircle[c_stack], rad)) { aCircle[ic0].is_collided = aCircle[c_stack].is_collided = true; break; }
+          if (is_collide(aCircle[ic0], aCircle[c_stack], rad)) { aCircle[ic0].is_collided = aCircle[c_stack].is_collided = true;}
       }
       // ----------------------------------------------
       stack.insert(ic0);
