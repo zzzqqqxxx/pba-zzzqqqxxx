@@ -133,8 +133,9 @@ void collision_detection(
     if( pi.is_start ){ // enter the range of the circle
       unsigned int ic0 = pi.icircle;
       // ----------------------------------------------
-      // write some codes here (probably 5 - 10 lines)
-      // use the function "is_collide()" at line #102
+      for (auto& c_stack : stack) {
+          if (is_collide(aCircle[ic0], aCircle[c_stack], rad)) { aCircle[ic0].is_collided = aCircle[c_stack].is_collided = true; break; }
+      }
       // ----------------------------------------------
       stack.insert(ic0);
     }
