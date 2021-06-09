@@ -31,7 +31,7 @@ $ git submodule update --init 3rd_party/delfem2
 
 Build the `main.cpp` using `cmake`. Run the program and take a screenshot image of the window. Paste the screenshot image below by editing this mark down document.
 
-=== paste screenshot here ===
+=== <img src="problem1.PNG" style="zoom:50%;" /> ===
 
 You will probably see a **highly distorted polygon shrinking **, but that's OK. 
 
@@ -53,7 +53,7 @@ In the visualization, the black points and line represent the polygon, the red l
 
 If the code working well, you will see that **the enrgy steadly deceases to the convergence** and **the area converges to one**. Paste the screenshot image below by editing this mark down document.
 
-=== paste screenshot here ===
+=== <img src="problem2.PNG" style="zoom:50%;" /> ===
 
 
 
