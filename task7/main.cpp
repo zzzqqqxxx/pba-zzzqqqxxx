@@ -69,8 +69,16 @@ void WdWddW_Rotation(
   const Eigen::Vector3d Rp = R*p;
   W = (Rp-q).squaredNorm();
   // compute gradient and hessian of the energy below.
-  // dW =
-  // ddW =
+  //dW[0] = -(2 * (Rp[0] - q[0]) * 0 + 2 * (Rp[1] - q[1]) * Rp[2] - 2 * (Rp[2] - q[2]) * Rp[1]);
+  //dW[1] = -(- 2 * (Rp[0] - q[0]) * Rp[2] + 2 * (Rp[1] - q[1]) * 0 + 2 * (Rp[2] - q[2]) * Rp[0]);
+  //dW[2] = -(2 * (Rp[0] - q[0]) * Rp[1] - 2 * (Rp[1] - q[1]) * Rp[0] + 2 * (Rp[2] - q[2]) * 0);
+  dW[0] = 2 * q[1] * Rp[2] - 2 * q[2] * Rp[1];
+  dW[1] = - 2 * q[0] * Rp[2] + 2 * q[2] * Rp[0];
+  dW[2] = 2 * q[0] * Rp[1] - 2 * q[1] * Rp[0];
+  ddW(0, 0) = -2 * q[1] * q[1] - 2 * q[2] * q[2]; ddW(0, 1) = 2 * q[0] * q[1]; ddW(0, 2) = 2 * q[0] * q[2];
+  ddW(1, 0) = 2 * q[1] * q[0]; ddW(1, 1) = -2 * q[0] * q[0] - 2 * q[2] * q[2]; ddW(1, 2) = 2 * q[1] * q[2];
+  ddW(2, 0) = 2 * q[2] * q[0]; ddW(2, 1) = 2 * q[2] * q[1]; ddW(2, 2) = -2 * q[0] * q[0] - 2 * q[1] * q[1];
+  
 }
 
 /**
