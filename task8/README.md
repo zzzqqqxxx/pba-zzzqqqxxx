@@ -30,7 +30,7 @@ $ git submodule update --init 3rd_party/delfem2
 
 Build the program using `cmake`. Run the program and take a screenshot image of the window. Paste the screenshot image below by editing this mark down document:
 
-=== paste screenshot here ===
+=== <img src="problem1.PNG" style="zoom:50%;" /> ===
 
 
 
@@ -50,7 +50,7 @@ The following slide may be useful :
 
 Paste the screenshot image of the animation below:
 
-== paste screenshot image here==
+== <img src="problem2.PNG" style="zoom:50%;" />==
 
 
 
