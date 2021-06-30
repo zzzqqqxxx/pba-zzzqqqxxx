@@ -39,7 +39,7 @@ $ git submodule update --init 3rd_party/delfem2
 Build the program using `cmake`. 
 Run the program and take a screenshot image of the window. Paste the screenshot image below by editing this mark down document:
 
-=== paste screenshot here ===
+=== <img src="problem1.PNG" style="zoom:50%;" /> ===
 
 
 ## Problem 2
@@ -54,14 +54,14 @@ The inertia tensor should computed for the **rotation around the origin of the c
 The line in red, blue and green are the principal axes of the inertia tensor.
 
 Write down the eigenvalues of the inertia tensor below (they will be shown in the standard output):
-- 1st eigenvalue: 
-- 2nd eigenvalue: 
-- 3rd eigenvalue: 
+- 1st eigenvalue: 6.29906e+08
+- 2nd eigenvalue: 1.37826e+09
+- 3rd eigenvalue: 1.75712e+09
 
 
 Paste the screenshot image below:
 
-=== paste screenshot here ===
+=== <img src="problem2.PNG" style="zoom:50%;" /> ===
 
 
 

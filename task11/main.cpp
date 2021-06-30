@@ -57,6 +57,12 @@ void InertiaTensor(
     };
     const double area = (ap[1]-ap[0]).cross(ap[2]-ap[0]).norm()/2; // area of triangle
     // write some code below to compute inertia tensor
+    for (unsigned int i = 0; i < 3; ++i) {
+        for (unsigned int j = 0; j < 3; ++j) {
+            if (i == j) { Imat += -1.0 / 6.0 * area * area * (ap[i] * ap[j].transpose() - ap[i].transpose() * ap[j] * Eigen::Matrix3d::Identity()); }
+            else { Imat += -1.0 / 12.0 * area * area * (ap[i] * ap[j].transpose() - ap[i].transpose() * ap[j] * Eigen::Matrix3d::Identity()); }
+        }
+    }
   }
 }
 
