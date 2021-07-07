@@ -122,7 +122,30 @@ int main()
             aMass[aQuad[iq*4+3]] };
         // write some code below to rigidly transform the points in the rest shape (`aq`) such that the
         // weighted sum of squared distances against the points in the tentative shape (`qp`) is minimized (`am` is the weight).
-
+        Eigen::Vector2f t_cg = Eigen::Vector2f::Zero();
+        Eigen::Vector2f T_cg = Eigen::Vector2f::Zero();
+        for (unsigned int i = 0; i < 4; ++i) {
+            t_cg += am[i] * ap[i];
+            T_cg += am[i] * aq[i];
+        }
+        t_cg /= (am[0] + am[1] + am[2] + am[3]);
+        T_cg /= (am[0] + am[1] + am[2] + am[3]);
+        Eigen::Matrix2f m = Eigen::Matrix2f::Zero();
+        for (unsigned int i = 0; i < 4; ++i) {
+            m += am[i] * (ap[i] - t_cg) * (aq[i] - T_cg).transpose();
+        }
+        Eigen::JacobiSVD<Eigen::MatrixXf> svd(m, Eigen::ComputeThinU | Eigen::ComputeThinV);
+        Eigen::Matrix2f U = svd.matrixU();
+        Eigen::Matrix2f V = svd.matrixV();
+        Eigen::Matrix2f R_opt = U * V.transpose();
+        Eigen::Vector2f t_opt = t_cg - R_opt*T_cg;
+        std::cout << t_cg - R_opt * T_cg << std::endl;
+        for (unsigned int i = 0; i < 4; ++i) {
+           int idx = aQuad[iq * 4 + i];
+           aXYt[idx * 2 + 0] = R_opt(0, 0) * aXY0[idx * 2 + 0] + R_opt(0, 1) * aXY0[idx * 2 + 1] +t_opt(0);
+           aXYt[idx * 2 + 1] = R_opt(1, 0) * aXY0[idx * 2 + 0] + R_opt(1, 1) * aXY0[idx * 2 + 1] +t_opt(1);
+        }
+        //aXYt = R_opt * aXY0 + t_opt;
 
         // no edits further down
       }

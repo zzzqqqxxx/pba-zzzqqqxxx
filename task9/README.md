@@ -31,7 +31,7 @@ $ git submodule update --init 3rd_party/delfem2
 Compile the `main.cpp` using the `CMakeLists.txt`, run the program and take a screenshot image. 
 Paste the image below.
 
-=== paste screenshot here ===
+=== <img src="problem1.PNG" style="zoom:50%;" /> ===
 
 
 
@@ -43,7 +43,7 @@ In the shape matching deformation, we need to fit each quad in the rest shape in
 The edits should be necessary only around line #123. 
 Paste the screenshot image of the program once it is finished.
 
-=== paste screenshot here ===
+=== <img src="problem2.PNG" style="zoom:50%;" /> ===
 
 
 ## Material 
